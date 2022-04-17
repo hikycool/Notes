@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       37DB7417-365C-4452-9717-A5439C79CC5C
+:END:
+#+title: C/C++ learning
+
+* 极客时间
+
+** [[id:D2F2C5E6-4CE7-47C1-AA69-A4BB6A3DB57C][05 需要函数对象的容器]]
+
+[[file:./c_plus_code/greater_less.cc]]
+
+
+** [[id:A4FC99E8-1F8E-4577-A3AC-06EA2D8D21A1][06 异常]]
+
+
+** [[id:60FDE1ED-A2E7-49C0-B28E-F583F9EC6958][07 迭代器和好用的新for循环]]

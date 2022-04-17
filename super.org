@@ -1,0 +1,5 @@
+
+#+TITLE: Super Note
+#+DATE: <2022-04-16 Sat>
+
+* [[id:37DB7417-365C-4452-9717-A5439C79CC5C][C/C++ learning]]

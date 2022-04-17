@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       A4FC99E8-1F8E-4577-A3AC-06EA2D8D21A1
+:END:
+#+title: 06 异常
+
+* Paper
+
+[[https://time.geekbang.org/column/article/175579]]
+
+* Use Exception
+
+[[file:./c_plus_code/use_exception.cc]]
+
+
+
+

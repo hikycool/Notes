@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       D2F2C5E6-4CE7-47C1-AA69-A4BB6A3DB57C
+:END:
+#+title: 05 需要函数对象的容器
+
+
+

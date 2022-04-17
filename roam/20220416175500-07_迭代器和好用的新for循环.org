@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:       60FDE1ED-A2E7-49C0-B28E-F583F9EC6958
+:END:
+#+title: 07 迭代器和好用的新for循环
+
+
+* begin() and end() in container
+
+假设：
+I = typeof(begin());
+S = typeof(end());
+
+before C++17: 两个函数的返回类型是要一样的，
+after C++17：可以不一样
+
+I 支持：
+|-----------------------------------------------------------|
+| I支持*操作，解引用取得容器内某个对象                      |
+| I对象支持++，指向下一个对象                               |
+| I对象可以和I或S对象进行相等比较，判断是否便利到了特定位置 |
+|-----------------------------------------------------------|
+
+迭代器基本要求：
+** 对象可以被拷贝构造、拷贝赋值和析构
+** 支持*运算
+** 支持前置++运算
+
+迭代器类型
+| input iterator 输入迭代器         | 支持前置++/后置++，支持单次访问即可        |
+| forward iterator 向前迭代器       | 可重复便利对象                             |
+| bidirectional iterator 双向迭代器 | 如果支持--（前后置）                       |
+| random-access iterator 随机迭代器 | 支持 +/-/+=/-=，支持[]访问，支持大小比较   |
+| contiguous iterator 连续迭代器    | 满足*(addressdof(*i) + n) 等价于 *(i + n), |
+|                                   | 保证迭代器指向对象在内存是连续的           |
+| output iterator 输出迭代器        | *i只能作为左值来写不能读                   |
+
+
+#+DOWNLOADED: screenshot @ 2022-04-16 18:49:13
+[[file:images/20220416-184913_screenshot.png]]
