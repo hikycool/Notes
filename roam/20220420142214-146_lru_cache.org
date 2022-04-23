@@ -1,0 +1,55 @@
+:PROPERTIES:
+:ID:       018DA7BB-73C1-410E-8DFA-AA37C5E95B81
+:END:
+#+title: 146 LRU cache
+
+#+begin_src cpp
+  struct CacheNode {
+    int key;
+    int value;
+    CacheNode(int key_, int value_)
+      : key(key_), value(value_) {}
+  };
+
+  class LRUCache {
+  public:
+    LRUCache(int capacity)
+      : capacity_(capacity) {}
+    ~LRUCache() {}
+
+    int get(int key) {
+      if (hash_table_.find(key) == hash_table_.end()) { return -1; }
+
+      cache_.splice(cache_.begin(), cache_, hash_table[key]);
+      return *hash_table_[key];
+    }
+
+    void put(int key, int value) {
+      if (hash_table_.find(key) != hash_table.end()) {
+	cache_.splice(cache_.begin(), cache_, hash_table[key]);
+	(*hash_table[key]).value = value;
+
+	return ;
+      }
+
+      cache_.emplace_front(key, value);
+      hash_table_[key] = cache_.begin();
+
+      if (capacity < size()) {
+	CacheNode &node = cache_.back();
+	hash_table_.erase(key);
+	cache_.pop_back();
+      }
+    }
+
+  private:
+    const int capacity_;
+
+    std::list<CacheNode> cache_;
+    std::unordered_map<int, std::list<CacheNode>::iterator> hash_table_;
+
+    const int size() const {
+      return cache_.size();
+    }
+  };
+#+end_src

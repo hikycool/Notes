@@ -1,0 +1,50 @@
+:PROPERTIES:
+:ID:       7E03427D-857B-40BC-8B92-CC49719A908E
+:END:
+#+title: FileSystem
+
+
+* Linux ACL (Access Control List)
+
+针对不同用户/用户组设置任何文件/目录的访问权限
+
+** 文件ACL属性
+
+| cmd     | description |
+|---------+-------------|
+| getfacl | 获取acl属性 |
+| setfacl | 设置acl属性 |
+
+* 文件锁
+
+Advisory Lock 劝告锁
+能够得到上锁信息，但是不阻止访问
+
+Mandatory Lock 强制锁
+能够得到上锁信息，也阻止访问
+
+使用模式上分为：
+1. 共享锁
+2. 排他锁
+
+Linux API 中主要的锁函数为：
+#+begin_src c
+  int flock(int fd, int operation);
+  int fcntl(int fd, int cmd, ...);
+  int fcntl(int fd, int cmd, strct flock *lock);
+#+end_src
+
+| operatiion |                |
+|------------+----------------|
+| LOCK_SH    | shared lock    |
+| LOCK_EX    | exclusive lock |
+| LOCK_UN    | unlock         |
+
+* 文件属性扩展
+
+setfattr -n <namespace.attribute> -v <value> <filename>
+getfattr <filename>
+
+
+
+

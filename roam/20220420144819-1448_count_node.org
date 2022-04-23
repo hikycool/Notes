@@ -1,0 +1,35 @@
+:PROPERTIES:
+:ID:       AE8DA064-4FA9-484D-9A1D-088220F798A4
+:END:
+#+title: 1448 Count Node
+
+
+* Thought
+
+采用前序遍历，每次在root节点进行max_val判断，
+count值遇到即自增
+
+#+begin_src cpp
+  class Solution {
+  public:
+    int goodNodes(TreeNode* root) {
+      if (!root->left && !root->right) return root->val;
+
+      int count(0), max_val(root->val);
+      count_good_node(root, count, max_val);
+
+      return count;
+    }
+
+    void count_good_node(TreeNode* root, int& count, int max_val) {
+      if (!root) return ;
+
+      if (max_val <= root->val) {
+	max_val = root->val;
+	count++;
+      }
+      if (root->left) count_good_node(root->left, count, max_val);
+      if (root->right) count_good_node(root->right, count, max_val);
+    }
+  };
+#+end_src
